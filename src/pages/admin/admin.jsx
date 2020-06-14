@@ -27,10 +27,10 @@ export default class admin extends React.Component {
 
     render() {
         // 如果内存中没有user对象
-        const user = storageUtils.getUser()
-        if (!user || !user._id) {
-            return <Redirect to="/login" />
-        }
+        // const user = storageUtils.getUser()
+        // if (!user || !user._id) {
+        //     return <Redirect to="/login" />
+        // }
 
         return (
             <Layout style={{ height: '100%' }}>
