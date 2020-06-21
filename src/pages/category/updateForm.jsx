@@ -19,19 +19,16 @@ class UpdateForm extends Component {
 
     render() {
         const { getFieldDecorator } = this.props.form
-        // const { categorys } = this.state
+        const { categoryName } = this.props
         return (
             <div>
                 <Form>
                     <Item>
                         {
-                            getFieldDecorator('parentName', {
-                                initialValue: ''
+                            getFieldDecorator('categoryName', {
+                                initialValue: categoryName
                             })(
-
-                                <Select>
                                     <Input placeholder='请输入分类名称' />
-                                </Select>
                             )
                         }
 
