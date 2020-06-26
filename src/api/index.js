@@ -14,3 +14,6 @@ export const reqAddCategorys = (categoryName, parentId) => ajax(urlHeader + '/ma
 //更新商品分类
 export const reqUpdaeCategorys = (categoryName, categoryId) => ajax(urlHeader + '/manage/category/update', { categoryName, categoryId }, 'POST')
 
+//获取商品列表分页查询
+export const reqProducts = (pageNum,pageSize) => ajax(urlHeader + '/manage/product/list', {pageNum,pageSize})
+

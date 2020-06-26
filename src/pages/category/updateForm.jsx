@@ -1,25 +1,27 @@
 import React, { Component } from 'react'
 import { Form, Select, Input } from 'antd'
+import PropTypes from 'prop-types'
+
 const Item = Form.Item
-const Option = Select.Option
 
 class UpdateForm extends Component {
 
-    state = {
-        categorys: []
+    static propTypes = {
+        categoryName: PropTypes.string.isRequired,
+        setForm:PropTypes.func.isRequired
     }
 
-    //为第一次render准备标题数据
-    // componentWillMount() {
-    //     const categorys = this.props.categorys
-    //     this.setState({
-    //         categorys
-    //     })
-    // }
+    
+    componentWillMount(){
+        //将 form 对象通过 setForm() 传递给父组件
+        this.props.setForm (this.props.form)
+    }
 
     render() {
-        const { getFieldDecorator } = this.props.form
-        const { categoryName } = this.props
+        
+        const {categoryName}=this.props
+        const {getFieldDecorator} =this.props.form
+
         return (
             <div>
                 <Form>
