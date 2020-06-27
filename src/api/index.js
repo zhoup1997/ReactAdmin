@@ -17,3 +17,9 @@ export const reqUpdaeCategorys = (categoryName, categoryId) => ajax(urlHeader + 
 //获取商品列表分页查询
 export const reqProducts = (pageNum,pageSize) => ajax(urlHeader + '/manage/product/list', {pageNum,pageSize})
 
+//搜索商品分页列表(根据商品名称/商品描述)
+export const reqSearchProducts = ({ pageNum, pageSize, searchName,searchType}) => ajax(urlHeader + '/manage/product/search', {
+    pageNum,
+    pageSize,
+    [searchType]: searchName,
+})
