@@ -7,7 +7,16 @@ import LinkButton from "../../components/link-button";
  */
 
 export default class detail extends Component {
+
+  
+
   render() {
+
+    //获取点击详情携带的product对象
+    
+    console.log(this.props.location.state);
+    const { name, desc, price, detail, imgs } = this.props.location.state
+    
     const title = (
       <span>
         <LinkButton>
@@ -21,19 +30,19 @@ export default class detail extends Component {
         <List>
           <Item>
             <span className="left">商品名称:</span>
-            <span className="right">惠普暗影精灵2Pro</span>
+            <span className="right">{name}</span>
           </Item>
           <Item>
             <span className="left">商品描述:</span>
-            <span className="right">年度重量级新品,更加轻薄机身设计</span>
+            <span className="right">{desc}</span>
           </Item>
           <Item>
             <span className="left">商品价格:</span>
-            <span className="right">惠普暗影精灵2Pro</span>
+            <span className="right">{price}</span>
           </Item>
           <Item>
             <span className="left">所属分类:</span>
-            <span className="right">惠普暗影精灵2Pro</span>
+            <span className="right"></span>
           </Item>
           <Item>
             <span className="left">商品图片:</span>
@@ -41,7 +50,7 @@ export default class detail extends Component {
           </Item>
           <Item>
             <span className="left">商品详情:</span>
-            <span className="right">惠普暗影精灵2Pro</span>
+            <span dangerouslySetInnerHTML={{ __html: detail }}></span>
           </Item>
         </List>
       </Card>
