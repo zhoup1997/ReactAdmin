@@ -14,8 +14,8 @@ export default class Product extends Component {
         return (
             <Switch>
                 <Route path='/product' component={ProductHome} exact/>   {/* //exact,完全匹配 */}
-                <Route path='/product/addupdate' component={ProductAddUpdate} />
-                <Route path='/product/detail' component={ProductDetail} />
+                <Route path='/product/addupdate' component={ProductAddUpdate} exact/>
+                <Route path='/product/detail' component={ProductDetail} exact/>
                 <Redirect to='/product'/>
             </Switch>
         )

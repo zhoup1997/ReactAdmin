@@ -15,7 +15,6 @@ class LeftNav extends Component {
     constructor() {
         super();
         this.state = {
-            path: [],
             openKey: []
         }
     }
@@ -38,7 +37,7 @@ class LeftNav extends Component {
                 //查找展开列表
                 //查找一个与当前请求路径匹配的子 item
                 //查找一个与当前请求路径匹配的子 item
-                const cItem = item.children.find(cItem => cItem.key === path)
+                const cItem = item.children.find(cItem => path.indexOf(cItem.key) === 0)
                 //如果存在，说明当前的 item 的子列表需要打开
                 if (cItem) {
                     this.openKey = item.key
@@ -73,7 +72,10 @@ class LeftNav extends Component {
 
 
         //得到当前路径
-        this.path = this.props.location.pathname
+        let path = this.props.location.pathname
+        if (path.indexOf('/product') === 0) { //当前请求的是商品或其子路由界面
+            path = '/product'
+        }
 
         return (
             <div>
@@ -85,7 +87,7 @@ class LeftNav extends Component {
                 <Menu
                     mode="inline"
                     theme="dark"
-                    selectedKeys={[this.path]}
+                    selectedKeys={[path]}
                     defaultOpenKeys={[this.openKey]}
                 >
                     {this.menuNodes}
